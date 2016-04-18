@@ -1,0 +1,53 @@
+﻿<Window x:Class="AsyncDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AsyncDemo"
+        mc:Ignorable="d"
+        Title="{Binding Path=ViewTitle}" Height="350" Width="525">
+    <Grid>
+
+        <Button 
+            x:Name="StartButton" 
+            Content="Start Task" 
+            Command="{Binding Path=StartDemoCommand}"
+            HorizontalAlignment="Left" 
+            Margin="88,99,0,0" 
+            VerticalAlignment="Top" 
+            Width="97" 
+            RenderTransformOrigin="0.052,1.327" />
+
+        <ListBox 
+            x:Name="listBox" 
+            ItemsSource="{Binding ListBox, Mode=OneWay}"
+            HorizontalAlignment="Left" 
+            Height="276" 
+            Margin="268,34,0,0" 
+            VerticalAlignment="Top" 
+            Width="239"/>
+
+        <TextBlock 
+            x:Name="textBlock" 
+            HorizontalAlignment="Left" 
+            Margin="268,10,0,0" 
+            TextWrapping="Wrap" 
+            Text="Async Call Results" 
+            VerticalAlignment="Top" 
+            Width="174" 
+            Height="23" 
+            FontSize="16"/>
+        
+        <Button 
+            x:Name="ClearButton" 
+            Content="Clear Results" 
+            Command="{Binding Path=ClearListCommand}"
+            HorizontalAlignment="Left" 
+            Margin="88,140,0,0" 
+            VerticalAlignment="Top" 
+            Width="97" 
+            RenderTransformOrigin="0,0.273"/>
+       
+
+    </Grid>
+</Window>
