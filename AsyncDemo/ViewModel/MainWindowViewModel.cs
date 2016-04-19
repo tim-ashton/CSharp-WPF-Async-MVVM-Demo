@@ -38,7 +38,7 @@ namespace AsyncDemo.ViewModel
 
             ListBox = new ObservableCollection<string>();
             mAsyncDemoHelper = new AsyncDemoHelper();
-            mAsyncDemoHelper.WorkPerformed += new EventHandler<WorkPerformedEventArgs>(WorkPerformed);
+            mAsyncDemoHelper.WorkPerformed += new EventHandler<WorkPerformedEventArgs>(OnMessageReceived);
         }
 
         /// <summary>
@@ -82,15 +82,7 @@ namespace AsyncDemo.ViewModel
         /// </summary>
         private async void OnStartButtonClick()
         {
-            Thread t = new Thread(() =>
-            {
-                Application.Current.Dispatcher.Invoke(() =>
-                {
-                    mProgressDialogService.ShowDialog();
-                });
-            });
-            t.Start();
-
+            ShowProgressDialog();
             ListBox.Add("Starting demo!");
 
             string result = await mAsyncDemoHelper.DoStuffAsync();
@@ -101,6 +93,21 @@ namespace AsyncDemo.ViewModel
                 mProgressDialogService.CloseDialog();
             });
 
+        }
+
+        /// <summary>
+        /// Async method to run the progress dialog on a background thread while the UI
+        /// Stays responsive
+        /// </summary>
+        private async void ShowProgressDialog()
+        {
+            await Task.Run(() =>
+            {
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    mProgressDialogService.ShowDialog();
+                });
+            });
         }
 
         /// <summary>
@@ -116,7 +123,7 @@ namespace AsyncDemo.ViewModel
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void WorkPerformed(object sender, WorkPerformedEventArgs args)
+        private void OnMessageReceived(object sender, WorkPerformedEventArgs args)
         {
             Application.Current.Dispatcher.Invoke(() =>
             {

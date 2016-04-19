@@ -8,11 +8,11 @@
         xmlns:global="clr-namespace:AsyncDemo"
         mc:Ignorable="d"
         Title="{Binding Path=ViewTitle}"
-        Height="60" 
-        Width="300"
+        Height="80" 
+        Width="400"
         ResizeMode="NoResize" 
         WindowStyle="SingleBorderWindow"
-        WindowStartupLocation="CenterOwner"
+        WindowStartupLocation="CenterScreen"
         global:WindowBehaviour.HideCloseButton="True">
     <Window.DataContext>
         <vm:ProgressDialogViewModel />

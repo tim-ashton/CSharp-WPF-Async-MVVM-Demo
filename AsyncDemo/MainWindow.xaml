@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AsyncDemo"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="{Binding Path=ViewTitle}" Height="350" Width="525">
     <Grid>
 
