@@ -7,5 +7,6 @@ This project demonstrates:
 * Using of the Model-Veiw-VeiwModel (MVVM) pattern
 * Using commands to communicate between Views and Viewmodels
 * Using a service to handle showing a dialog
-* Using a modal progress dialog that reports progress to the user
-* Using a custom window behaviour to properly remove the close button on a modal (progress) dialog
+* Using a modal progress dialog that shows progress to the user
+* Updating the UI with data as it is returned from async callbacks
+* Using a custom window behaviour class to properly remove the close button on a modal (progress) dialog
