@@ -18,12 +18,14 @@ namespace AsyncDemo.Data
         /// <returns>The returned string from subtasks</returns>
         public async Task<string> DoStuffAsync()
         {
-            // call into the slow task 
-            // You can see this is the last thing to be shown in the output in the listbox
-            string stringFromSlowTask = await SlowTask();
 
-            // return the string from the slow task
-            return stringFromSlowTask;
+            // keep calling back with updates. This calls back to viewmodel and updates
+            // the output each tome it loops
+            await DoLongRunningTaskWithCallbacks();
+
+            // This string returns back to the user interface after completion
+            // this is only returned after continuation from the above await call
+            return "DoStuffAsync returns after callbacks!";
         }
 
         /// <summary>
@@ -32,7 +34,7 @@ namespace AsyncDemo.Data
         /// <returns></returns>
         private async Task DoLongRunningTaskWithCallbacks()
         {
-            Action loopForAWhile = delegate ()
+            await Task.Run(()=>
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -40,8 +42,7 @@ namespace AsyncDemo.Data
 
                     Thread.Sleep(500);
                 }
-            };
-            await Task.Run(loopForAWhile);
+            });
         }
 
 
@@ -55,22 +56,6 @@ namespace AsyncDemo.Data
             {
                 WorkPerformed(this, new WorkPerformedEventArgs(data));
             }
-        }
-
-        /// <summary>
-        /// Slow task that has a subtask.
-        /// </summary>
-        /// <returns>Completed message</returns>
-        private async Task<string> SlowTask()
-        {
-            // keep calling back with updates. This calls back to viewmodel and updates
-            // the output each tome it loops
-            await DoLongRunningTaskWithCallbacks();
-
-            await Task.Delay(5000);
-
-            // This string returns back to the user interface after completion
-            return "Really slow task completed!";
         }
     }
 }

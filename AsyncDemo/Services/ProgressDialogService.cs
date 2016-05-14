@@ -11,9 +11,12 @@ namespace AsyncDemo.Services
     class ProgressDialogService : IDialogService
     {
         private Window progressDialog;
+        private Window owner;
 
-        public ProgressDialogService()
-        { }
+        public ProgressDialogService(Window owner)
+        {
+            this.owner = owner;
+        }
 
         public void CloseDialog()
         {
@@ -26,6 +29,10 @@ namespace AsyncDemo.Services
         public void ShowDialog()
         {
             progressDialog = new ProgressDialog();
+
+            if (owner != null)
+                progressDialog.Owner = owner;
+
             progressDialog.ShowDialog();
         }
     }

@@ -18,9 +18,14 @@ namespace AsyncDemo.ViewModel
     class MainWindowViewModel : ViewModelBase
     {
         AsyncDemoHelper mAsyncDemoHelper;
+
         private RelayCommand mStartDemoCommand;
         private RelayCommand mClearListCommand;
         IDialogService mProgressDialogService;
+
+        public string StartButtonText { get; } = Resources.MainWindowViewModel_StartButtonText;
+        public string ClearButtonText { get; } = Resources.MainWindowViewModel_ClearButtonText;
+        public string ResultTextBlockText { get; } = Resources.MainWindowViewModel_TextBlockText;
 
         /// <summary>
         /// Sets and gets the listBox property
@@ -32,9 +37,9 @@ namespace AsyncDemo.ViewModel
         {
             base.ViewTitle = Resources.MainWindowViewModel_Title;
 
-            // Passing an IDialog service allows us to mock up this service
-            // and unit test this viewmodel with the mock.
-            mProgressDialogService = dialogService;
+        // Passing an IDialog service allows us to mock up this service
+        // and unit test this viewmodel with the mock.
+        mProgressDialogService = dialogService;
 
             ListBox = new ObservableCollection<string>();
             mAsyncDemoHelper = new AsyncDemoHelper();

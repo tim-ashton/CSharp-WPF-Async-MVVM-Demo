@@ -23,7 +23,7 @@ namespace AsyncDemo
             base.OnStartup(e);
 
             MainWindow window = new MainWindow();
-            IDialogService mProgressService = new ProgressDialogService();
+            IDialogService mProgressService = new ProgressDialogService(window);
             MainWindowViewModel mainViewModel = new MainWindowViewModel(mProgressService);
 
             // Allow all controls in the window to 

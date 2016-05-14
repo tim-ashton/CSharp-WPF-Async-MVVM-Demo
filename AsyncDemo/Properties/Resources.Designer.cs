@@ -61,6 +61,33 @@ namespace AsyncDemo.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear Results.
+        /// </summary>
+        internal static string MainWindowViewModel_ClearButtonText {
+            get {
+                return ResourceManager.GetString("MainWindowViewModel_ClearButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Async Task.
+        /// </summary>
+        internal static string MainWindowViewModel_StartButtonText {
+            get {
+                return ResourceManager.GetString("MainWindowViewModel_StartButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Async Task Results.
+        /// </summary>
+        internal static string MainWindowViewModel_TextBlockText {
+            get {
+                return ResourceManager.GetString("MainWindowViewModel_TextBlockText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Async Demo Main Window.
         /// </summary>
         internal static string MainWindowViewModel_Title {

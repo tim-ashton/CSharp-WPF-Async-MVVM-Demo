@@ -6,48 +6,73 @@
         xmlns:local="clr-namespace:AsyncDemo"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="{Binding Path=ViewTitle}" Height="350" Width="525">
+        Title="{Binding Path=ViewTitle}" Height="350" Width="404.755">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
         <Button 
+            Grid.Column="0"
             x:Name="StartButton" 
-            Content="Start Task" 
+            Content="{Binding Path=StartButtonText}" 
             Command="{Binding Path=StartDemoCommand}"
-            HorizontalAlignment="Left" 
-            Margin="88,99,0,0" 
+            HorizontalAlignment="Center" 
+            Margin="0,10,0,0" 
             VerticalAlignment="Top" 
             Width="97" 
+            Height="20"
             RenderTransformOrigin="0.052,1.327" />
 
-        <ListBox 
-            x:Name="listBox" 
-            ItemsSource="{Binding ListBox, Mode=OneWay}"
-            HorizontalAlignment="Left" 
-            Height="276" 
-            Margin="268,34,0,0" 
-            VerticalAlignment="Top" 
-            Width="239"/>
-
-        <TextBlock 
-            x:Name="textBlock" 
-            HorizontalAlignment="Left" 
-            Margin="268,10,0,0" 
-            TextWrapping="Wrap" 
-            Text="Async Call Results" 
-            VerticalAlignment="Top" 
-            Width="174" 
-            Height="23" 
-            FontSize="16"/>
-        
         <Button 
+            Grid.Column="0"
             x:Name="ClearButton" 
-            Content="Clear Results" 
+            Content="{Binding Path=ClearButtonText}" 
             Command="{Binding Path=ClearListCommand}"
-            HorizontalAlignment="Left" 
-            Margin="88,140,0,0" 
+            HorizontalAlignment="Center" 
+            Margin="0,40,0,0" 
             VerticalAlignment="Top" 
             Width="97" 
+            Height="20"
             RenderTransformOrigin="0,0.273"/>
+
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock 
+                Grid.Column="0"
+                Grid.Row="0"
+                x:Name="textBlock" 
+                HorizontalAlignment="Center" 
+                Margin="10,10,10,10" 
+                Text="{Binding Path=ResultTextBlockText}" 
+                VerticalAlignment="Center" 
+                Width="174" 
+                Height="23" 
+                FontSize="16"/>
+
+            <ListBox 
+                Grid.Column="0"
+                Grid.Row="1"
+                x:Name="listBox" 
+                ItemsSource="{Binding ListBox, Mode=OneWay}"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Stretch"
+                Margin="10,0,10,10"
+                Width="174"/>
+
+        </Grid>
        
 
     </Grid>

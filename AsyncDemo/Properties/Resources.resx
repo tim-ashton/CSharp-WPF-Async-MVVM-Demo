@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="MainWindowViewModel_ClearButtonText" xml:space="preserve">
+    <value>Clear Results</value>
+  </data>
+  <data name="MainWindowViewModel_StartButtonText" xml:space="preserve">
+    <value>Start Async Task</value>
+  </data>
+  <data name="MainWindowViewModel_TextBlockText" xml:space="preserve">
+    <value>Async Task Results</value>
+  </data>
   <data name="MainWindowViewModel_Title" xml:space="preserve">
     <value>Async Demo Main Window</value>
   </data>
